@@ -40,8 +40,8 @@ const Animes = () => {
            </div>
              <div className={style.animes}>
                 { text ? filter.map(anime => (
-                    <div id={anime.id} style={{ textAlign: "center", marginRight:'0' }}>
-                        <Card sx={{ maxWidth: 300,minWidth: 250, height: 260 }}>
+                    <div id={anime.id} style={{ textAlign: "center", width:280}}>
+                        <Card sx={{ maxWidth: 280,minWidth: 250, height: 260 }}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -84,8 +84,7 @@ const Animes = () => {
                     </div>
                 ))}
                 {loading && <div style={{ textAlign: "center" }}>
-                    <CircularProgress sx={{ width: '200px' }} disableShrink />
-                    <h2 className={style.loading}>Loading</h2> </div>}
+                    <CircularProgress sx={{ width: '200px' }} disableShrink /></div>}
             </div>
         </div>
     )
