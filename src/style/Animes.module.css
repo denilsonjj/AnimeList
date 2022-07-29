@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200');
 .content {
     background: linear-gradient(270deg, #000000, #4906ad);
     background-size: 400% 400%;
@@ -39,7 +40,7 @@
     grid-gap: 1.5rem;
 }
 .title {
-    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-family: "Raleway", Haettenschweiler, "Arial Narrow Bold", sans-serif;
     text-align: center;
     color: #fff;
     font-size: 50px;
@@ -48,6 +49,9 @@
     animation: typewriter 1s steps(20) infinite alternate,
       blink 700ms steps(20) infinite normal;
     border-bottom: 2px solid #fff;
+  }
+  .title:hover{
+    animation-play-state: paused;
   }
   @keyframes typewriter {
     from {
@@ -68,7 +72,7 @@
   .search{
     width: 200px;
     height: 40px;
-   margin: 0 auto;
+    margin: 0 auto;
     padding: 7px;
     font-size: 16px;
     border-width: 1px;
@@ -86,15 +90,23 @@
     font-size: 40px;
     color: #fff;
   }
-  @media only screen and (max-width: 800)  {
+  @media only screen and (max-width: 700px){
     .animes{
-      display: grid;
-      margin: 0 auto;
-      grid-template-columns: repeat(
-        auto-fit,
-        minmax(200px, 2fr)
-      );
-      list-style: none;
-      grid-gap: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
   }
+  @media only screen and (max-width: 550px) and (min-width: 400px){
+    .animes{
+    margin-left: 45px;
+    }
+    .search{
+      margin-right: 120px;
+    }
+  }
+  @media only screen and (max-width: 300px){
+    .animes{
+      margin: 0 auto;
+    }
   }
