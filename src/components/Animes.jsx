@@ -1,14 +1,21 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Card, CardContent, CardMedia, Typography, CardActionArea, CircularProgress} from "@mui/material";
+import { Card,
+CardContent,
+CardMedia, 
+Typography, 
+CardActionArea, 
+CircularProgress,
+Button} from "@mui/material";
 import { Link } from "react-router-dom";
 import StarIcon from '@mui/icons-material/Star';
 import style from "../style/Animes.module.css"
+
 const api = "https://kitsu.io/api/edge"
 
 const Animes = () => {
     const [animes, setAnimes] = useState([])
-    const [ filter, setFilter]= useState([])
+    const [filter, setFilter]= useState([])
     const [text, setText] = useState("")
     const [loading, setLoading] = useState(true)
 
@@ -37,12 +44,12 @@ const Animes = () => {
          <h1 className={style.title}>Animes</h1>
            <div className={style.search}>
            <input type="search" className={style.search} value={text} onChange=
-           {e => setText(e.target.value)} />
+           {e => setText(e.target.value)} placeholder="Busque seu anime" />
            </div>
              <div className={style.animes}>
                 { text ? filter.map(anime => (
-                    <div id={anime.id} style={{ textAlign: "center", width:280}}>
-                        <Card sx={{ maxWidth: 280,minWidth: 250, height: 260 }}>
+                    <div id={anime.id} style={{ textAlign: "center", margin: '0 auto'}}>
+                        <Card sx={{ width: 300, height: 260 }}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -60,16 +67,16 @@ const Animes = () => {
                                 </CardContent>
                             </CardActionArea>
                         </Card>
-                       {/* <button className={style.button}> 
-                        <Link to="/Detalhe/:id">
-                            detalhe
+                        <Button style={{margin: '5px'}} variant="outlined" color="primary">
+                          <Link style={{textDecoration:'none'}} to={`/Detalhe/${anime.id}`}>
+                          <span style={{color: 'yellow'}}>Detalhe</span> 
                         </Link> 
-                </button>*/}
+                     </Button>
                     </div>))
                      :
                 animes.map(anime => (
-                    <div id={anime.id} style={{ textAlign: "center", margin: '0 auto' }}>
-                        <Card sx={{ maxWidth: 300,minWidth: 250, height: 260 }}>
+                    <div key={anime.id} style={{ textAlign: "center", margin: '0 auto' }}>
+                        <Card sx={{ maxWidth: 300,minWidth: 300, height: 260 }}>
                             <CardActionArea>
                                 <CardMedia
                                     component="img"
@@ -88,11 +95,12 @@ const Animes = () => {
                             </CardActionArea>
                       
                         </Card>
-                           <button className={style.button}> 
-                        <Link to="/Detalhe">
-                            detalhe
+                     <Button style={{margin: '5px'}} variant="outlined" color="primary">
+                          <Link style={{textDecoration:'none'}} to={`/Detalhe/${anime.id}`}>
+                          <span style={{color: 'yellow'}}>Detalhe</span> 
                         </Link> 
-                     </button>
+                     </Button>
+                      
                     </div>
                 ))}
   
