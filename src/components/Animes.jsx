@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Card, CardContent, CardMedia, Typography, CardActionArea, CircularProgress } from "@mui/material";
+import { Card, CardContent, CardMedia, Typography, CardActionArea, CircularProgress} from "@mui/material";
+import { Link } from "react-router-dom";
 import StarIcon from '@mui/icons-material/Star';
 import style from "../style/Animes.module.css"
 const api = "https://kitsu.io/api/edge"
@@ -59,10 +60,15 @@ const Animes = () => {
                                 </CardContent>
                             </CardActionArea>
                         </Card>
+                       {/* <button className={style.button}> 
+                        <Link to="/Detalhe/:id">
+                            detalhe
+                        </Link> 
+                </button>*/}
                     </div>))
                      :
                 animes.map(anime => (
-                    <div id={anime.id} style={{ textAlign: "center" }}>
+                    <div id={anime.id} style={{ textAlign: "center", margin: '0 auto' }}>
                         <Card sx={{ maxWidth: 300,minWidth: 250, height: 260 }}>
                             <CardActionArea>
                                 <CardMedia
@@ -80,9 +86,16 @@ const Animes = () => {
                                     </Typography>
                                 </CardContent>
                             </CardActionArea>
+                      
                         </Card>
+                           <button className={style.button}> 
+                        <Link to="/Detalhe">
+                            detalhe
+                        </Link> 
+                     </button>
                     </div>
                 ))}
+  
                 {loading && <div style={{ textAlign: "center" }}>
                     <CircularProgress sx={{ width: '200px' }} disableShrink /></div>}
             </div>
