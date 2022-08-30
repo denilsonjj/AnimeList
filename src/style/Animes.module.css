@@ -131,9 +131,15 @@
   .search {
     margin: 10 auto;
   }
+  .title{
+   animation: none;
+  }
 }
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 399px) {
   .animes {
     margin: 10 auto;
+  }
+  .title{
+    animation: none;
   }
 }
